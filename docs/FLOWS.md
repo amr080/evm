@@ -1,4 +1,3 @@
-## Flows
 ### Table of Contents
 - [ETF Trade](#etf-trade)
 - [ETF Fail](#etf-fail)
