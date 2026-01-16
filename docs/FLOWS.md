@@ -71,6 +71,7 @@
 3. AP receives new ETF shares
 4. AP sells ETF shares in market
 
+---
 
 <details>
 <summary>ETF Creation</summary>
@@ -94,6 +95,7 @@
 
 <details>
 <summary>Credit Transfer</summary>
+
 1. Alice sends a request to Bank A “Pay Bank B $5 for the benefit of Bob”
 2. Bank A verifies Alice’s identity and adequacy of Alice’s funds
 3. Bank A notifies Bank B of the payment
@@ -105,6 +107,7 @@
 
 <details>
 <summary>ACH Data</summary>
+
 1. Originator initiates a debit or credit payment order to the ODFI
 2. ODFI transmits the payment information to the ACH operator
 3. ACH operator receives data from the ODFI and sorts the entries by routing number
@@ -115,6 +118,7 @@
 
 <details>
 <summary>Wire</summary>
+
 1. **Initiation:** The sender provides their bank with the recipient's name, account number and bank information (such as routing number for domestic transfers and IBAN for international transfers).
 2. **Verification:** The sending bank verifies the sender's account balance and transaction details.
 3. **Processing:** The sending bank processes the transfer through payment networks such as Fedwire or SWIFT.
@@ -122,5 +126,241 @@
 5. **Funds crediting:** The recipient's bank receives the payment instructions and credits the funds to the specified account.
 6. **Notification:** Both sender and recipient receive confirmation of the transfer.
 7. **Settlement:** The banks complete the transaction by settling funds between themselves through central banks or clearing houses.
+
+</details>
+
+<details>
+<summary>Correspondent banking</summary>
+
+1. Debiting of payer’s account with bank A
+2. Crediting of bank B’s mirror account with bank A, which is kept for accounting purposes
+3. Payment message from bank A to bank B via telecommunication network
+4. Debiting of bank A’s account with bank B (loro account)
+
+**A. Use correspondent bank only**
+
+5. Crediting of bank C’s account with bank B
+6. Payment message from bank B to bank C via telecommunication network
+7. Debiting of bank’s B mirror account with bank C, which is kept for accounting purposes
+8. Crediting of receiver’s account with bank C
+
+**B. Involvement of payment system**
+
+5. Payment message from bank B to payment system
+6. Settlement via payment system
+7. Payment message from payment system to bank C
+8. Crediting of receiver’s account with bank C
+
+</details>
+
+<details>
+<summary>Stablecoin Transfer</summary>
+
+**Authorization**
+
+1. Sender initiates a transfer via their wallet.
+2. Transaction is broadcast to the blockchain network.
+3. Network verifies sender's balance and transaction validity.
+4. Transaction is approved and added to the blockchain.
+
+**Processing**
+
+5. Transaction is processed on the blockchain.
+6. Smart contracts execute any required conditions.
+7. Network nodes confirm the transaction.
+
+**Settlement**
+
+8. Stablecoin is credited to the recipient's wallet.
+9. Transaction is permanently recorded on the blockchain.
+
+</details>
+
+<details>
+<summary>MMF Purchase Process</summary>
+
+1. Institutional Client initiates Fedwire for purchase
+2. Custodian receives Fedwire in clearing account
+3. Global Cash Services creates case upon receipt of wire
+4. TA (Transfer Agent) reconciles transaction with wired funds received
+5. Treasury/Fund Accounting initiates wire from clearing to fund account
+6. Custodian receives wire into fund account
+
+</details>
+
+<details>
+<summary>MMF Liquidation Process</summary>
+
+1. TA creates case for outgoing wire
+2. Global Cash Services initiates wire to the client
+3. Treasury/Fund Accounting initiates wire from fund account to clearing account
+4. Custodian fund account wires to clearing account
+5. Custodian clearing account wires to client
+6. Institutional Client receives wire
+
+</details>
+
+<details>
+<summary>Traditional MMF Intercompany Transfer</summary>
+
+1. Unit A initiates MMF redemption
+2. Unit A approves MMF redemption
+3. MMF redemption settlement (T+0 or T+1)
+4. Unit A confirms MMF proceeds landed in bank
+5. Unit A initiates MMF payment to Unit B
+6. Unit A approves payment to Unit B
+7. Unit B receives payment, initiates MMF purchase and associated payment
+8. Unit B approves MMF purchase and associated payment
+9. Funds arrive at MMF, begin earning interest (T+0 to T+1)
+
+</details>
+
+<details>
+<summary>Tokenized MMF Intercompany Transfer</summary>
+
+1. Unit A initiates transfer of MMF tokens to Unit B
+2. Unit A approves transfer of MMF tokens to Unit B
+3. Funds arrive in Unit B's wallet and start earning yield instantly, with no yield lost during transaction
+
+</details>
+
+<details>
+<summary>MMF Funding Engine</summary>
+
+1. Investors deposit cash with the MMF's custodian.
+2. The MMF selects and invests in money market securities according to the Investment Policy of the Fund.
+3. Purchased securities are held at the MMF's custodian on behalf of the Investors.
+4. Returns on the portfolio may either be paid to investors periodically or reinvested in the fund.
+
+</details>
+
+
+<details>
+<summary>Trade Lifecycle</summary>
+
+1. Trade Initiation
+2. Trade Execution
+3. Trade Capture
+4. Trade Enrichment
+5. Trade Validation
+6. Trade Verification
+7. Trade Allocation
+8. Trade Agreement
+9. Trade Affirmation
+10. Trade Confirmation
+11. Clearing
+12. Settlement
+13. Reconciliation
+14. Trade Reporting
+</details>
+
+
+<details>
+<summary>PREPAID STABLECOIN DEBIT TRANSFER / PULL</summary>
+
+1. Cardholder authorizes merchant to pull funds
+2. Merchant sends debit request
+3. Merchant wallet submits blockchain debit request
+4. Blockchain verifies card wallet balance
+5. Blockchain debits card wallet
+6. Blockchain credits merchant wallet
+7. Merchant wallet confirms receipt to merchant
+</details>
+
+
+<details>
+<summary>PREPAID STABLECOIN CREDIT / TRANSFER / PUSH</summary>
+
+1. Cardholder requests payment
+2. Card wallet submits stablecoin transfer
+3. Blockchain debits card wallet
+4. Blockchain credits merchant wallet
+5. Merchant wallet confirms receipt to merchant
+6. Merchant provides receipt to cardholder
+
+</details>
+
+<details>
+<summary>Minting and redeeming stablecoins</summary>
+
+**MINT**
+1. Authenticate
+2. Deposit USD
+3. Convert USD to Stablecoin
+4. Transfer Stablecoin to Customer
+
+**REDEEM**
+1. Authenticate
+2. Create Deposit Address
+3. Send Stablecoin to XFT
+4. XFT Transfers USD to Bank Account
+
+</details>
+
+
+
+<details>
+<summary>VISA DIRECT FOR WALLET</summary>
+
+1. The sender initiates a payment using a visa direct client.
+2. The Visa Direct Client processes the payment through the Visa Direct Gateway.
+3. The Visa Direct Gateway connects to the Visa Payments Limited (VPL) network.
+4. A network of wallet aggregators and operators on the VPL is utilized to facilitate the transaction.
+5. The payment is transferred to the recipient's financial institution.
+
+</details>
+
+<details>
+<summary>VISA DIRECT USER</summary>
+
+1. Sender initiates payment through a digital channel
+2. Create and submit OCT transaction
+3. Transaction is routed to recipient institution
+4. Receiving institution credits account and notifies recipient
+5. Recipient can access funds at POS or ATM
+
+</details>
+
+
+<details>
+<summary>IDN liquidity mechanism</summary>
+
+1. Bank funds IDN wallet
+2. Bank adds optional supplemental
+3. Bank A pays Bank B
+4. XFT debits A credits B
+5. Uses supplemental then primary
+6. Queues if limits hit
+7. End of day net and settle​
+
+</details>
+
+
+
+<details>
+<summary>MORTGAGE LIFECYCLE</summary>
+
+1. ORIGINATION The lender helps the borrowers complete the loan application.
+2. PROCESSING The lender documents the loan file.
+3. UNDERWRITING The lender evaluates the loan file.
+4. CLOSING The borrowers sign loan documents; the sellers transfer the title.
+5. WAREHOUSING The lender may temporarily warehouse closed loans.
+6. DELIVERY The lender packages and sends the loan to an investor
+7. SECONDARY MARKET Lenders and investors buy and sell mortgages.
+8. LOAN SERVICING Third parties collect the borrowers’ monthly mortgage payment.
+
+</details>
+
+<details>
+<summary>Mortgage</summary>
+
+1. Origination
+2. Processing
+3. Underwriting
+4. Closing
+5. Warehousing
+6. Delivery
+7. Secondary market
+8. Loan servicing
 
 </details>
