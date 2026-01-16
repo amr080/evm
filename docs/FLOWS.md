@@ -396,14 +396,10 @@
 <summary>ETF redemption process John</summary>
 
 1. John goes to his broker and gives him the order to sell 500,000 shares of the ETF.
-
 2. The broker buys the ETF shares from John at an agreed-upon price.
-
 3. The broker determines if a redemption is necessary due to the decrease in demand and is now long the ETF since John sold the shares back to him.
 4. The broker then sells the basket of securities held by the ETF to hedge his position and is now short the basket, long the ETF.
-
 5. The broker delivers the ETF shares to the ETF issuer, initiating a redemption.
-
 6. The broker receives the basket of securities from the issuer and flattens out the short basket position.
 
 </details>
@@ -414,7 +410,6 @@
 <summary>ETF creation process John</summary>
 
 1. John goes to his broker and gives him the order to buy 500,000 shares of an ETF.
-
 2. The broker sells the ETF shares to John at a specific price. As mentioned before, the process of buying the ETF is seamless for John the investor, and his work is done.
 3. Behind the scenes on the back end, the broker has determined that, due to the increased demand by John, he as an authorized participant must create new ETF shares. He is now short the ETF shares since he sold them to John.
 4. The broker then buys the basket of securities held by the ETF to hedge himself and is now long the basket and short the ETF.
