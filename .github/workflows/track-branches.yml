@@ -1,0 +1,85 @@
+name: Track Branches
+
+on:
+  push:
+    branches-ignore:
+      - main
+  create:
+  delete:
+
+jobs:
+  update-branches:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Fetch all branches
+        run: git fetch --all
+
+      - name: Generate branches.json
+        run: |
+          node << 'EOF'
+          const { execSync } = require('child_process');
+          const fs = require('fs');
+          
+          try {
+            // Query only actual branch refs (excludes HEAD and origin remote itself)
+            const raw = execSync('git for-each-ref --format="%(refname:short)|%(objectname)|%(committerdate:iso8601)" refs/remotes/origin/*', { encoding: 'utf8' })
+              .trim();
+            
+            const branches = raw
+              .split('\n')
+              .filter(line => line && line.trim() && !line.includes('HEAD'))
+              .map(line => {
+                const [name, sha, updatedAt] = line.split('|');
+                if (!name || !sha) return null;
+                
+                const branchName = name.replace(/^origin\//, '').trim();
+                
+                // Skip invalid branches (empty, origin itself, or invalid format)
+                if (!branchName || branchName === 'origin' || branchName === '') {
+                  return null;
+                }
+                
+                // Normalize timestamp to ISO8601
+                let normalizedDate;
+                try {
+                  normalizedDate = new Date(updatedAt || Date.now()).toISOString();
+                } catch {
+                  normalizedDate = new Date().toISOString();
+                }
+                
+                return {
+                  name: branchName,
+                  sha: sha.trim(),
+                  updatedAt: normalizedDate
+                };
+              })
+              .filter(b => b !== null)
+              .sort((a, b) => a.name.localeCompare(b.name));
+            
+            const output = {
+              updatedAt: new Date().toISOString(),
+              branches
+            };
+            
+            // Write fresh file (overwrites if exists)
+            fs.writeFileSync('branches.json', JSON.stringify(output, null, 2) + '\n', 'utf8');
+          } catch (error) {
+            console.error('Error generating branches.json:', error);
+            process.exit(1);
+          }
+          EOF
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add branches.json
+          git diff --staged --quiet || (git commit -m "chore: update branches.json" && git push)
