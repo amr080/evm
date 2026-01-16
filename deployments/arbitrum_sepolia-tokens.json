@@ -1,0 +1,22 @@
+{
+  "network": "arbitrum_sepolia",
+  "chainId": 421614,
+  "deployer": "0x2f572059DbC598C8acfeA4AF06FE4f7669D1b3b1",
+  "deployments": {
+    "Dollar": {
+      "tokenName": "Dollar",
+      "factoryName": "XFTDollarFactory",
+      "tokenImpl": "0x264EB3aD300246E89feF6a5Bcd62367B8B6f6ED5",
+      "deployedAt": "2026-01-13T00:47:28.993Z",
+      "factory": "0xF4604e35D18E11eB7a606dBca1313c318Ce76206"
+    },
+    "Bond": {
+      "tokenName": "Bond",
+      "factoryName": "XFTBondFactory",
+      "tokenImpl": "0xd00d872801506eA5fc46f2560a4bc8b45C79eF2a",
+      "deployedAt": "2026-01-13T03:17:07.959Z",
+      "factory": "0xbBe2d4A8912A1684F8DA5921d1637e90f2857875"
+    }
+  },
+  "timestamp": 1768274233163
+}
