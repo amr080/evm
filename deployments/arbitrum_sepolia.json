@@ -1,0 +1,54 @@
+{
+  "network": "arbitrum_sepolia",
+  "chainId": 421614,
+  "deployer": "0x2f572059DbC598C8acfeA4AF06FE4f7669D1b3b1",
+  "config": {
+    "tokenId": "MMF",
+    "mmf": {
+      "name": "Money Market Fund",
+      "symbol": "MMF"
+    },
+    "auth": {
+      "moduleOwner": "0x2f572059DbC598C8acfeA4AF06FE4f7669D1b3b1",
+      "authAdmin": "0x2f572059DbC598C8acfeA4AF06FE4f7669D1b3b1",
+      "fundAdmin": "0x2f572059DbC598C8acfeA4AF06FE4f7669D1b3b1",
+      "defaultTokenId": "MMF"
+    },
+    "tx": {
+      "moduleOwner": "0x2f572059DbC598C8acfeA4AF06FE4f7669D1b3b1",
+      "defaultTokenId": "MMF",
+      "selfServiceOn": true
+    },
+    "ta": {
+      "moduleOwner": "0x2f572059DbC598C8acfeA4AF06FE4f7669D1b3b1",
+      "defaultTokenId": "MMF"
+    },
+    "reuse": {},
+    "enableTransfers": {
+      "instant": true,
+      "erc20": true,
+      "thirdParty": true
+    }
+  },
+  "addresses": {
+    "moduleRegistry": "0xbE6812f9d51096D5FfcD4fB97DA37dBaC9456147",
+    "tokenRegistry": "0xA38E16f1B467862603Daf1DA4fd662C47e99d7b5",
+    "mmfImpl": "0x34580a9aEe1b5eD4f2654356ff46f6b0c0e3Fd37",
+    "authImpl": "0x5728e869BAB85804094dE949a46B42197ac0ebdd",
+    "txImpl": "0xdC99A179663F92AC5AD396003982F507b439B224",
+    "taImpl": "0x68C4809BA03727577be9647a7635d5646afABD43",
+    "mmfProxy": "0x551e19ca64d5DDF5dBB7192086fA9Cb55fcae239",
+    "authProxy": "0x38cb1364acE70fdE548211d8B40a36B72d0b36a4",
+    "txProxy": "0xd2EeAc1b77A6F34e5A5b172fc776534E4593eA80",
+    "taProxy": "0x4120d7FC4d3818d3cD59d9278aB5f17ADAFFbEc0"
+  },
+  "completedSteps": [
+    "00_registries",
+    "01_impls",
+    "02_proxies",
+    "03_register",
+    "04_roles",
+    "05_verify"
+  ],
+  "timestamp": 1768201832371
+}

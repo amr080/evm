@@ -1,0 +1,58 @@
+name: Track Branches
+
+on:
+  push:
+  create:
+  delete:
+  workflow_dispatch:
+
+jobs:
+  update-branches:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    # Prevent concurrent runs
+    concurrency:
+      group: track-branches
+      cancel-in-progress: true
+    
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Generate and push
+        run: |
+          git fetch --all --prune
+          
+          # Generate branches.json
+          node -e '
+          const { execSync } = require("child_process");
+          const fs = require("fs");
+          
+          const raw = execSync("git for-each-ref --format=\"%(refname:short)|%(objectname:short)|%(committerdate:iso8601)\" refs/remotes/origin", { encoding: "utf8" });
+          
+          const branches = raw.trim().split("\n")
+            .filter(l => l && !l.includes("HEAD"))
+            .map(l => {
+              const [ref, sha, date] = l.split("|");
+              const name = ref.replace("origin/", "");
+              if (!name || name === "origin") return null;
+              return { name, sha, updatedAt: new Date(date).toISOString() };
+            })
+            .filter(Boolean)
+            .sort((a, b) => a.name.localeCompare(b.name));
+          
+          fs.writeFileSync("branches.json", JSON.stringify({ updatedAt: new Date().toISOString(), branches }, null, 2) + "\n");
+          '
+          
+          # Commit and push (only if changed)
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add branches.json
+          git diff --staged --quiet && exit 0
+          git commit -m "chore: update branches.json"
+          git pull --rebase origin main
+          git push origin main
