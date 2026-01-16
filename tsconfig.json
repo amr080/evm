@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "esModuleInterop": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "outDir": "dist"
+  },
+  "include": ["./scripts", "./hardhat.config.ts", "archive/tree-archive.ts", "archive/tree-artifacts.ts", "archive/tree-contracts.ts", "archive/tree-scripts.ts", "archive/tree-src.ts", "archive/v1/v1-migration.ts"],
+  "exclude": ["node_modules"]
+}
