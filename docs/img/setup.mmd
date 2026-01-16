@@ -1,0 +1,5 @@
+graph LR
+    A[Deploy ModuleRegistry] --> B[Deploy TokenRegistry]
+    B --> C[Deploy Modules]
+    C --> D[Register in ModuleRegistry]
+    D --> E[Register Tokens in TokenRegistry]
