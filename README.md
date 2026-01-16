@@ -1,5 +1,3 @@
-# BITNET
-
 BITNET is an all-to-all blockchain trading system home to 20000+ tokenized securities across all asset classes. Programmatic multi-asset composability. Offline digital payments. Use stocks, bonds, real estate to buy groceries.
 
 Learn more [here](https://docs.xft.finance/bitnet).
