@@ -1,0 +1,15 @@
+.env
+node_modules/
+docs/
+docs/ai/
+docs/deploy/
+docs/transfer_agents/
+cache/
+artifacts/
+archive/
+.cursor/
+scripts/
+scripts/run/
+scripts/ma-q.ts
+package-lock.json
+README.txt
