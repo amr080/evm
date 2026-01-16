@@ -1,0 +1,12 @@
+sequenceDiagram
+    participant AP as AP
+    participant DRS
+    participant Issuer
+    participant Wallet as AP Wallet
+
+    AP->>DRS: 1. mint tokens
+    DRS->>Issuer: 2. mint request to issuer
+    Issuer->>DRS: 3. journal securities
+    DRS->>Issuer: 4. confirm journal
+    Issuer->>Wallet: 5. deposit tokens
+    Issuer-->>DRS: 6. mint confirmation callback

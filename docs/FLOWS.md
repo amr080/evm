@@ -321,6 +321,18 @@
 
 </details>
 
+<details>
+<summary>Payments data</summary>
+
+1. Initiation
+2. Authorization
+3. Transmission
+4. Acceptance
+5. Receipt
+
+</details>
+
+
 
 <details>
 <summary>IDN liquidity mechanism</summary>
@@ -362,5 +374,132 @@
 6. Delivery
 7. Secondary market
 8. Loan servicing
+
+</details>
+
+<details>
+<summary>1031 Exchange</summary>
+
+1. Alice deposits 100 22 LIBERTY LN to escrow
+2. Escrow mints 100 LGUSD to Alice wallet
+3. Bob deposits 100 20 LIBERTY LN to escrow
+4. LG Settlement Services approves
+5. Atomic settlement:
+    - Contract sends 100 22 LIBERTY LN tokens to Bob wallet
+    - Contract sends 100 20 LIBERTY LN tokens to Alice wallet
+    - Escrow burns 100 LGUSD from Alice wallet
+
+</details>
+
+
+<details>
+<summary>ETF redemption process John</summary>
+
+1. John goes to his broker and gives him the order to sell 500,000 shares of the ETF.
+
+2. The broker buys the ETF shares from John at an agreed-upon price.
+
+3. The broker determines if a redemption is necessary due to the decrease in demand and is now long the ETF since John sold the shares back to him.
+4. The broker then sells the basket of securities held by the ETF to hedge his position and is now short the basket, long the ETF.
+
+5. The broker delivers the ETF shares to the ETF issuer, initiating a redemption.
+
+6. The broker receives the basket of securities from the issuer and flattens out the short basket position.
+
+</details>
+
+
+
+<details>
+<summary>ETF creation process John</summary>
+
+1. John goes to his broker and gives him the order to buy 500,000 shares of an ETF.
+
+2. The broker sells the ETF shares to John at a specific price. As mentioned before, the process of buying the ETF is seamless for John the investor, and his work is done.
+3. Behind the scenes on the back end, the broker has determined that, due to the increased demand by John, he as an authorized participant must create new ETF shares. He is now short the ETF shares since he sold them to John.
+4. The broker then buys the basket of securities held by the ETF to hedge himself and is now long the basket and short the ETF.
+5. The broker then delivers the basket of securities to the ETF issuer, initiating a creation.
+6. The broker receives new ETF shares from the issuer in return and flattens out his short ETF position.
+
+</details>
+
+<details>
+<summary>Buy stocks</summary>
+
+1. User sends EUR to Robinhood
+2. Robinhood swaps EUR to USD
+3. Robinhood buys shares
+4. Robinhood mints token to User wallet
+
+</details>
+
+<details>
+<summary>Sell stocks</summary>
+
+1. User sends token to Robinhood
+2. Robinhood sells AAPL share
+3. Robinhood swaps USD to EUR
+4. Robinhood sends EUR to User
+5. Robinhood burns tokens
+
+</details>
+
+
+<details>
+<summary>Withdrawing crypto assets</summary>
+
+1. Whitelist the destination address
+2. Verify whitelist approval status
+3. Request withdrawal to approved address
+4. Monitor withdrawal status
+
+</details>
+
+<details>
+<summary>Mint tokenization endpoint</summary>
+
+1. Once the handshake process is completed, the AP is now able to request minting of tokenized assets using the endpoint below.
+2. Mint request is validated by DRS and Issuer:
+   - DRS validations:
+     - Client is an AP authorized for tokenizations
+     - AP has enough underlying position to mint
+   - Issuer validations:
+     - Wallet address provided is registered to the AP
+     - Requested token is available on the requested network
+3. Upon successful validation of mint request, DRS journals the requested quantity of underlying security from AP's account to Issuer's account
+4. DRS confirms with Issuer that underlying security has been journaled
+5. Issuer deposits tokenized assets in AP's provided wallet address
+6. Issuer informs DRS of successful deposit of tokens in AP's wallet address
+
+</details>
+
+
+
+<details>
+<summary>Mint tokenization endpoint</summary>
+
+1. Once the handshake process is completed, the AP is now able to request minting of tokenized assets using the endpoint below.
+2. Mint request is validated by DRS and Issuer:
+   - DRS validations:
+     - Client is an AP authorized for tokenizations
+     - AP has enough underlying position to mint
+   - Issuer validations:
+     - Wallet address provided is registered to the AP
+     - Requested token is available on the requested network
+3. Upon successful validation of mint request, DRS journals the requested quantity of underlying security from AP's account to Issuer's account
+4. DRS confirms with Issuer that underlying security has been journaled
+5. Issuer deposits tokenized assets in AP's provided wallet address
+6. Issuer informs DRS of successful deposit of tokens in AP's wallet address
+
+</details>
+
+
+<details>
+<summary>Redeem tokenization endpoint</summary>
+
+1. AP moves tokens into Issuer's redemption wallet address
+2. Issuer removes tokens from circulation
+3. Issuer notifies DRS that AP has redeemed tokens
+4. DRS journals underlying asset from Issuer's account to AP's account
 
 </details>
