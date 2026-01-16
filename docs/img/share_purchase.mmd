@@ -1,0 +1,12 @@
+graph TD
+    Start[User wants to buy shares] --> Auth{User authorized?}
+    Auth -->|No| End1[Reject]
+    Auth -->|Yes| Tx[Create transaction request]
+    Tx --> Store[Store in TransactionalModule]
+    Store --> Wait[Wait for settlement]
+    Wait --> Settle[Admin calls settleTransactions]
+    Settle --> Read[TransferAgent reads TransactionalModule]
+    Read --> Calc[Calculate shares from price]
+    Calc --> Mint[Mint shares on MoneyMarketFund]
+    Mint --> Clear[Clear transaction from queue]
+    Clear --> Done[User has shares]
