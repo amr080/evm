@@ -1,6 +1,7 @@
 ## Architecture 
 
 
+
 ### Inheritance
 
 ```
@@ -20,6 +21,10 @@ BaseModule = parent
 4. ```TransferAgentModule``` Settlement, dividends, corporate actions
 5. ```ModuleRegistry``` Module registration & wiring
 6. ```TokenRegistry``` Collateral master file & whitelist
+
+
+
+
 
 ### CORE FUNCTION
 

@@ -1,0 +1,32 @@
+MODULE SPECIFICATIONS CREATED
+
+BaseModule.md
+Purpose: Abstract UUPS upgradeable base class
+Storage: ModuleRegistry reference
+Functions: __BaseModule_init, getVersion
+
+ModuleRegistry.md
+Purpose: Central module address registry
+Storage: mapping(bytes32 => address)
+Functions: registerModule, getModuleAddress, getModuleVersion
+
+TokenRegistry.md
+Purpose: Central token address registry
+Storage: mapping(string => address)
+Functions: registerToken, getTokenAddress
+
+AuthorizationModule.md
+Purpose: RBAC and account management
+Roles: MODULE_OWNER, AUTHORIZATION_ADMIN, FUND_ADMIN, FUND_AUTHORIZED, ACCESS_CONTROL_FROZEN
+Functions: authorizeAccount, deauthorizeAccount, freezeAccount, unfreezeAccount, removeAccountPostRecovery, isAccountAuthorized, isAdminAccount, isAccountFrozen
+
+TransactionalModule.md
+Purpose: Pending transaction queue
+Transaction Types: CASH_PURCHASE, CASH_LIQUIDATION, FULL_LIQUIDATION, AIP, SHARE_TRANSFER, CXFER_OUT, CXFER_IN
+Functions: requestCashPurchase, requestCashLiquidation, requestFullLiquidation, requestShareTransfer, setupAIP, cancelRequest, clearTransactionStorage, getAccountTransactions, hasTransactions
+Self-Service: requestSelfServiceCashPurchase, requestSelfServiceCashLiquidation, requestSelfServiceFullLiquidation, requestSelfServiceShareTransfer, cancelSelfServiceRequest
+
+TransferAgentModule.md
+Purpose: Settlement, dividends, balance adjustments, account recovery
+Functions: distributeDividends, settleTransactions, endOfDay, settleCXTransaction, adjustBalance, recoverAccount, recoverAsset
+Internal: _processDividends, _processSettlements, _handleBalanceIncrease, _handleBalanceDecrease
