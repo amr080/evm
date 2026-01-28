@@ -253,6 +253,52 @@
 14. Trade Reporting
 </details>
 
+<details>
+<summary>BITNET DIRECT ISSUANCE</summary>
+
+1. Issuer registers offering
+2. Investor buys new shares
+3. Issuer accepts stablecoins
+4. Investor receives tokenized shares
+5. DRS updates registry
+
+</details>
+
+<details>
+<summary>BITNET PRIMARY & SECONDARY MARKETS</summary>
+
+1. <strong>Issuer registers offering:</strong> Issuer submits standard registration statement to the SEC
+2. <strong>Investor buys new shares:</strong> Investor connects wallet, completes KYC, and buys shares
+3. <strong>Issuer accepts stablecoins:</strong> Funds settle directly into the issuer’s wallet from KYC-verified investors
+4. <strong>Investor receives tokenized shares:</strong> DRS issues tokenized shares instantly into the investor’s wallet
+5. <strong>DRS updates registry:</strong> Shareholder records updated in real-time
+
+</details>
+
+<details>
+<summary>DRS ISSUANCE</summary>
+
+1. Issuer submits standard registration statement to the SEC
+2. Investor connects wallet, completes KYC, and buys shares
+3. Stablecoins settle into issuer’s wallet from KYC-verified investors
+4. DRS issues tokenized shares to investor wallets
+5. Shareholder registry updates programmatically via blockchain
+
+</details>
+
+<details>
+<summary>BITNET DIRECT ISSUANCE PROGRAM</summary>
+
+1. Issuers file the standard SEC registration
+2. Investors connect wallets and send stablecoins, with pricing referenced to real-time market prices
+3. Tokenized shares are issued directly to investor wallets via DRS
+4. The shareholder registry updates in real time
+
+</details>
+
+
+
+
 
 <details>
 <summary>PREPAID STABLECOIN DEBIT TRANSFER / PULL</summary>
